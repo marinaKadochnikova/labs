@@ -8,8 +8,12 @@ class TreeNode
 
     TreeNode();
     TreeNode(int data = 0, TreeNode* pLeft = nullptr, TreeNode* pRight = nullptr, TreeNode* parent = nullptr);
-    int GetData() { return data; }
-    void Set(const int& a);
+    TreeNode* GetLessNode();
+    void SetLessNode(TreeNode* newNode);
+    TreeNode* GetMoreNode();
+    void SetMoreNode(TreeNode* newNode);
+    int GetValue();
+    void SetValue(int newValue);
 
     friend class BinaryTree;
 };
