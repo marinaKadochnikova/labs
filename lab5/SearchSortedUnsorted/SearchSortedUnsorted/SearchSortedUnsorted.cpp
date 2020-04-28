@@ -1,7 +1,7 @@
 ﻿
 #include <iostream>
-#include <time.h>
-
+#include <ctime>
+#include <cstdio>
 
 using namespace std;
 
@@ -23,7 +23,7 @@ int main()
     int key = 0;
     int index = 0;
     int* begin = std::begin(Array);
-    clock_t start, end;
+    clock_t start1, end1, start2, end2;
 
     for (int i = 0; i < N; i++)
         Array[i] = fillRandomElements(-limit, limit);
@@ -33,11 +33,10 @@ int main()
     cout << "find element" << endl;
     cin >> value;
 
-    start = clock();
+    start1 = clock();
     index = Search(value);
-    end = clock();
+    end1 = clock();
     cout << "index = " << Search(value) << endl;
-    double time1 = ((double)end - start) / ((double)CLOCKS_PER_SEC);
 
     RQuickSort(begin, 0, N - 1);
     Print();
@@ -45,21 +44,14 @@ int main()
     cout << "find element Binary Search" << endl;
     cin >> key;
 
-    start = clock();
+    start2 = clock();
     index = RBSearch(key, Array, 0, N);
-    end = clock();
+    end2 = clock();
 
     cout << "index = " << index << "\n\n";
 
-    double time2 = ((double)end - start) / ((double)CLOCKS_PER_SEC);
-
-    if (time1 > time2)
-        printf("Search for an element in unsorted Array was executed in %.4f second(s)\n", time1);
-    else
-        if (time2 > time1)
-            printf("Search for an element in sorted Array was executed in %.4f second(s)\n", time2);
-        else
-            printf("Search tooks the same time in %.4f second(s)\n", time1);
+    printf("Search for an element in unsorted Array was executed in %.10f second(s)\n", ((double)end1 - start1) / ((double)CLOCKS_PER_SEC));
+    printf("Search for an element in sorted Array was executed in %.10f second(s)\n", ((double)end2 - start2) / ((double)CLOCKS_PER_SEC));
 
     return 0;
 }
@@ -77,7 +69,10 @@ int Search(int value)
     for (int i = 0; i < N; i++)
     {
         if (Array[i] == value)
+        {
             index = i;
+            break;
+        }
     }
     return index;
 }
