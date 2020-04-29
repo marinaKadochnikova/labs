@@ -2,6 +2,7 @@
 #include <iostream>
 #include <ctime>
 #include <cstdio>
+#include<chrono>
 
 using namespace std;
 
@@ -23,7 +24,6 @@ int main()
     int key = 0;
     int index = 0;
     int* begin = std::begin(Array);
-    clock_t start1, end1, start2, end2;
 
     for (int i = 0; i < N; i++)
         Array[i] = fillRandomElements(-limit, limit);
@@ -33,10 +33,12 @@ int main()
     cout << "find element" << endl;
     cin >> value;
 
-    start1 = clock();
+    auto start1 = chrono::high_resolution_clock::now();
     index = Search(value);
-    end1 = clock();
-    cout << "index = " << Search(value) << endl;
+    auto end1 = chrono::high_resolution_clock::now();
+    cout << "index = " << index << endl;
+
+    chrono::duration<float> time1 = end1 - start1;
 
     RQuickSort(begin, 0, N - 1);
     Print();
@@ -44,14 +46,15 @@ int main()
     cout << "find element Binary Search" << endl;
     cin >> key;
 
-    start2 = clock();
+    auto start2 = chrono::high_resolution_clock::now();
     index = RBSearch(key, Array, 0, N);
-    end2 = clock();
-
+    auto end2 = chrono::high_resolution_clock::now();
     cout << "index = " << index << "\n\n";
 
-    printf("Search for an element in unsorted Array was executed in %.10f second(s)\n", ((double)end1 - start1) / ((double)CLOCKS_PER_SEC));
-    printf("Search for an element in sorted Array was executed in %.10f second(s)\n", ((double)end2 - start2) / ((double)CLOCKS_PER_SEC));
+    chrono::duration<float> time2 = end2 - start2;
+
+    printf("Search for an element in unsorted Array was executed in %.10f second(s)\n", time1.count() / ((double)CLOCKS_PER_SEC));
+    printf("Search for an element in sorted Array was executed in %.10f second(s)\n", time2.count() / ((double)CLOCKS_PER_SEC));
 
     return 0;
 }
