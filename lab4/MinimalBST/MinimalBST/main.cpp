@@ -8,12 +8,10 @@ int main()
     BinaryTree intTree;
     int lenght = 5;
     int* numbers = new int[lenght] { 1, 2, 3, 4, 5 };
-    int start = 0;
-    int end = lenght - 1;
-    intTree.CreateMinimalBST(numbers, start, end);
+    intTree.CreateMinimalBST(numbers, 0, lenght - 1);
     int b;
     cout << "find element ";
     cin >> b;
-    intTree.Search(b);
+    cout << intTree.Search(b);
     return 0;
 }

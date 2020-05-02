@@ -12,13 +12,13 @@ int main()
     cout << " Tree size =  ";
     cin >> size;
     cout << size << " numbers  " << endl;
-    for (int i = 0; i < 5; i++)
+    for (int i = 0; i < size; i++)
     {
         cin >> a;
         intTree.Insert(a);
     }
     cout << "find element" << endl;
     cin >> b;
-    intTree.Search(b);
+    cout << intTree.Search(b);
     return 0;
 }

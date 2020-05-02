@@ -12,8 +12,8 @@ class TreeNode
     void SetLessNode(TreeNode* newNode);
     TreeNode* GetMoreNode();
     void SetMoreNode(TreeNode* newNode);
-    int GetValue();
-    void SetValue(int newValue);
+    int GetData();
+    void SetData(int newData);
 
     friend class BinaryTree;
 };

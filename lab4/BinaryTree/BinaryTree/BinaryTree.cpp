@@ -6,6 +6,11 @@ BinaryTree::BinaryTree()
     root = nullptr;
 }
 
+BinaryTree::BinaryTree(TreeNode* firstNode)
+{
+    root = firstNode;
+}
+
 BinaryTree::~BinaryTree()
 {
     Destoy(root);

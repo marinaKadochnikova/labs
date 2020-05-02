@@ -2,7 +2,7 @@
 
 TreeNode::TreeNode()
 {
-    pLeft = pRight = 0;
+    pLeft = pRight = parent = nullptr;
     data = 0;
 }
 
@@ -34,12 +34,12 @@ void TreeNode::SetMoreNode(TreeNode* newNode)
     pRight = newNode;
 }
 
-int TreeNode::GetValue()
+int TreeNode::GetData()
 {
     return data;
 }
 
-void TreeNode::SetValue(int newValue)
+void TreeNode::SetData(int newData)
 {
-    data = newValue;
+    data = newData;
 }
