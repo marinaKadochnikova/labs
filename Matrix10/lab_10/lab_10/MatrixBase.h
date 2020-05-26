@@ -12,10 +12,11 @@ public:
     virtual void operator*=(int iMult);
     virtual void operator+=(MatrixBase iAdd);
 protected:
-    MatrixBase(unsigned int iSize);
+    MatrixBase(unsigned int iSize) :m_size(iSize) {};
 private:
-    unsigned int m_size;
-    int** M = nullptr;
+    const unsigned int m_size;
+    static const int N = 5;
+    int M[N][N];
 };
 
 std::ostream& operator<<(std::ostream& stream, const MatrixBase& iMatrix);

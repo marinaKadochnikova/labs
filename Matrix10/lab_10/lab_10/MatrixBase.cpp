@@ -5,18 +5,6 @@ unsigned int MatrixBase::size() const
     return m_size;
 }
 
-MatrixBase::MatrixBase(unsigned int iSize)
-{
-    m_size = iSize;
-    M = new int* [m_size];
-    for (unsigned int i = 0; i < m_size; i++)
-    {
-        M[i] = new int[m_size];
-        for (unsigned int j = 0; j < m_size; ++j)
-            M[i][j] = 0;
-    }
-}
-
 void MatrixBase::setElement(unsigned int i, unsigned int j, int value)
 {
     M[i][j] = value;
